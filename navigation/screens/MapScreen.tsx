@@ -23,8 +23,8 @@ const SearchResults = (props: ListProps) => {
 
   useEffect(() => {
     Promise.all([
-      axios.default.get(`http://192.168.1.106:3000/locations/${term}`),
-      axios.default.get(`http://192.168.1.106:3000/universities/${term}`),
+      axios.default.get(`http://192.168.1.12:3000/locations/${term}`),
+      axios.default.get(`http://192.168.1.12:3000/universities/${term}`),
     ])
       .then(([{ data: locationResults }, { data: universitiesResults }]) => {
         if (locationResults) setCountry(locationResults);

@@ -21,7 +21,7 @@ const ListScrean = () => {
 
   useEffect(() => {
     Promise.all([
-      axios.default.get(`http://192.168.1.106:3000/universities/${term}`),
+      axios.default.get(`http://192.168.1.12:3000/universities/${term}`),
     ]).then(([{ data: universitiesResults }]) => {
       if (universitiesResults) setUniversity(universitiesResults);
     });
