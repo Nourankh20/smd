@@ -13,8 +13,7 @@ import {
 } from "react-native";
 import { Card } from "react-native-elements";
 import { useRoute } from "@react-navigation/native";
-import Carousel from "../../components/carousel";
-import DesignClass from "../../components/design";
+import CarouselClass from "../../components/carousel";
 
 const ListScrean = () => {
   const route = useRoute<RouteProps>();
@@ -32,7 +31,7 @@ const ListScrean = () => {
 
   return (
     <SafeAreaView>
-      <View>
+      <View style={{backgroundColor:'floralwhite'}}>
         <ScrollView>
           {term &&
             universities?.map((University, index: number) => (
@@ -56,20 +55,8 @@ const ListScrean = () => {
                     {University.name}
                   </Text>{" "}
                 </Card.Title>
-
                 <Card.Divider />
-                {/* <Card.Image
-                  style={{ marginBottom: 5 }}
-                  source={{
-                    uri:
-                      University.images[0] !== ""
-                        ? University.images[0]
-                        : "https://cdn1.vectorstock.com/i/thumb-large/50/20/no-photo-or-blank-image-icon-loading-images-vector-37375020.jpg",
-                  }}
-                /> */}
-
-                {  <DesignClass images={University.image} />} 
-                     
+                <CarouselClass images={University.image} />
                 <Text style={{ marginBottom: 10, fontSize: 16 }}>
                   Located at : {University.addressFmt}
                 </Text>
@@ -103,11 +90,11 @@ type University = {
 };
 
 const styles = StyleSheet.create({
-  btn : {
+  btn: {
     marginTop: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-})
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
 export default ListScrean;
