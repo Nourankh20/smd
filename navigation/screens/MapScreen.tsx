@@ -11,6 +11,7 @@ const SearchResults = (props: ListProps) => {
   const [country, setCountry] = useState<GeocodeResult>();
   const [universities, setUniversity] = useState<University[]>();
   const [_, setViewport] = useState<Region>();
+ 
 
   const { width, height } = Dimensions.get('window');
   const ASPECT_RATIO = width / height;
@@ -22,6 +23,7 @@ const SearchResults = (props: ListProps) => {
   const navigation = useNavigation();
 
   useEffect(() => {
+   
     Promise.all([
       axios.default.get(`http://192.168.1.12:3000/locations/${term}`),
       axios.default.get(`http://192.168.1.12:3000/universities/${term}`),

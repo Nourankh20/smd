@@ -18,6 +18,7 @@ const ListScrean = () => {
   const route = useRoute<RouteProps>();
   const { term } = route.params;
   const [universities, setUniversity] = useState<University[]>();
+  const [flag,setFlag]=useState<boolean>(true);
 
   useEffect(() => {
     Promise.all([
@@ -54,7 +55,7 @@ const ListScrean = () => {
                 </Card.Title>
 
                 <Card.Divider />
-                <Card.Image
+                {/* <Card.Image
                   style={{ marginBottom: 5 }}
                   source={{
                     uri:
@@ -62,7 +63,9 @@ const ListScrean = () => {
                         ? University.image
                         : "https://cdn1.vectorstock.com/i/thumb-large/50/20/no-photo-or-blank-image-icon-loading-images-vector-37375020.jpg",
                   }}
-                />
+                /> */}
+
+                {/* {flag? <Carousel images={University.images} /> : <DesignClass images={University.images} />}  */}
                 <Text style={{ marginBottom: 10, fontSize: 16 }}>
                   Located at : {University.addressFmt}
                 </Text>
@@ -92,7 +95,7 @@ type University = {
   name: string;
   slug: string;
   addressFmt: string;
-  image: string;
+  image: string[];
 };
 
 export default ListScrean;
