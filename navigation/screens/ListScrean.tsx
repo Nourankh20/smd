@@ -9,16 +9,18 @@ import {
   Dimensions,
   SafeAreaView,
   ScrollView,
-  ImageBackground,
+  StyleSheet,
 } from "react-native";
 import { Card } from "react-native-elements";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
+import Carousel from "../../components/carousel";
+import DesignClass from "../../components/design";
 
 const ListScrean = () => {
   const route = useRoute<RouteProps>();
   const { term } = route.params;
   const [universities, setUniversity] = useState<University[]>();
-  const [flag,setFlag]=useState<boolean>(true);
+  const [flag, setFlag] = useState<boolean>(true);
 
   useEffect(() => {
     Promise.all([
@@ -27,6 +29,7 @@ const ListScrean = () => {
       if (universitiesResults) setUniversity(universitiesResults);
     });
   }, []);
+
   return (
     <SafeAreaView>
       <View>
@@ -59,13 +62,14 @@ const ListScrean = () => {
                   style={{ marginBottom: 5 }}
                   source={{
                     uri:
-                      University.image !== ""
-                        ? University.image
+                      University.images[0] !== ""
+                        ? University.images[0]
                         : "https://cdn1.vectorstock.com/i/thumb-large/50/20/no-photo-or-blank-image-icon-loading-images-vector-37375020.jpg",
                   }}
                 /> */}
 
-                {/* {flag? <Carousel images={University.images} /> : <DesignClass images={University.images} />}  */}
+                {  <DesignClass images={University.image} />} 
+                     
                 <Text style={{ marginBottom: 10, fontSize: 16 }}>
                   Located at : {University.addressFmt}
                 </Text>
@@ -97,5 +101,13 @@ type University = {
   addressFmt: string;
   image: string[];
 };
+
+const styles = StyleSheet.create({
+  btn : {
+    marginTop: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+})
 
 export default ListScrean;
