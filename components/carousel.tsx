@@ -21,13 +21,13 @@ const CarouselClass = ({ images }: Props) => {
         renderItem={({ item, index }) => (
           <Image
             key={index}
-            style={{ width: "100%", height: 200 }}
+            style={{ width: "100%", height: 200 , borderRadius:5}}
             resizeMode="contain"
             source={{
               uri:
                 item
                   ? item
-                  : "https://cdn1.vectorstock.com/i/thumb-large/50/20/no-photo-or-blank-image-icon-loading-images-vector-37375020.jpg",
+                  : "https://static.thenounproject.com/png/944120-200.png",
             }}
           />
         )}

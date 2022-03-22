@@ -31,7 +31,7 @@ const ListScrean = () => {
 
   return (
     <SafeAreaView>
-      <View style={{backgroundColor:'floralwhite'}}>
+      <View >
         <ScrollView>
           {term &&
             universities?.map((University, index: number) => (
